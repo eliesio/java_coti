@@ -23,14 +23,26 @@ public class FornecedorInput {
 	public static String lerNome() throws Exception {
 
 		String nome = JOptionPane.showInputDialog("Entre com o nome do fornecedor:");
-		return nome; // retornando o valor da variável..
+		
+		if(nome.trim().length() >= 6 && nome.trim().length() <= 150) {
+			return nome; // retornando o valor da variável..
+		}
+		else {
+			throw new Exception("Nome do fornecedor deve ter entre 6 e 150 caracteres.");
+		}
 	}
 
 	// método para que o usuario entre com o cnpj do fornecedor
 	public static String lerCnpj() throws Exception {
 
 		String cnpj = JOptionPane.showInputDialog("Entre com o cnpj do fornecedor:");
-		return cnpj; // retornando o valor da variavel..
+		
+		if(cnpj.trim().length() >= 14 && cnpj.trim().length() <= 18) {
+			return cnpj; // retornando o valor da variavel..
+		}
+		else {
+			throw new Exception("CNPJ deve conter de 14 a 18 caracteres.");
+		}
 	}
 
 }
