@@ -8,7 +8,15 @@ public class FornecedorInput {
 	public static Integer lerIdFornecedor() throws Exception {
 
 		Integer idFornecedor = Integer.parseInt(JOptionPane.showInputDialog("Entre com o Id do fornecedor:"));
-		return idFornecedor; // retornando o valor da variavel..
+		
+		//Regra: o id do fornecedor deve ser um valor maior do que zero
+		if(idFornecedor > 0) {
+			return idFornecedor; // retornando o valor da variavel..
+		}
+		else {
+			//gerar uma exceção (erro, ou seja, executar o bloco catch)
+			throw new Exception("O id do fornecedor deve ser maior do que zero.");
+		}		
 	}
 
 	// método para que o usuario entre com o nome do fornecedor
