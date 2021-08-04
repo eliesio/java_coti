@@ -4,14 +4,14 @@ public class Produto {
 
 	private Integer idProduto;
 	private String nome;
-	private Integer preco;
+	private Double preco;
 	private Integer quantidade;
 
 	public Produto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Produto(Integer idProduto, String nome, Integer preco, Integer quantidade) {
+	public Produto(Integer idProduto, String nome, Double preco, Integer quantidade) {
 		super();
 		this.idProduto = idProduto;
 		this.nome = nome;
@@ -35,11 +35,11 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public Integer getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Integer preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 
