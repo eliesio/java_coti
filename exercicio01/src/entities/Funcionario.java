@@ -48,9 +48,6 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
-	public void setSalario(String string) {
-		// TODO Auto-generated method stub
 		
-	}
 
 }

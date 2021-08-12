@@ -15,7 +15,7 @@ public class Program {
 		funcionario.setNome("Richard Pryor");
 		funcionario.setCpf("123.456.789-00");
 		funcionario.setMatricula("2021-001");
-		funcionario.setSalario("3000");
+		funcionario.setSalario(3000.);
 
 		System.out.println("\nDADOS DO FUNCIONARIO:");
 		System.out.println("\tId do Funcionario......: " + funcionario.getIdFuncionario());
