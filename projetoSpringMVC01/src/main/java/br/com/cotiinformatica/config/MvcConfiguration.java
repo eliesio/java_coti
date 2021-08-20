@@ -1,8 +1,11 @@
 package br.com.cotiinformatica.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -26,5 +29,17 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
-
+	
+	@Bean
+	public DataSource getDataSource() {
+		
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/bd_projetospringmvc01?useTimezone=true&serverTimezone=UTC&useSSL=false");
+		dataSource.setUsername("root");
+		dataSource.setPassword("coti");
+		
+		return dataSource;
+	}
 }
