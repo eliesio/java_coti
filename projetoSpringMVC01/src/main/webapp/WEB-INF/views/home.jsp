@@ -25,16 +25,21 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">Página inicial</a></li>
+						aria-current="page" href="/projetoSpringMVC01/">Página inicial</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Gerenciar Tarefas </a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">Cadastrar Tarefas</a></li>
-							<li><a class="dropdown-item" href="#">Consultar Tarefas</a></li>
+							<li><a class="dropdown-item"
+								href="/projetoSpringMVC01/tarefas-cadastro">Cadastrar
+									Tarefas</a></li>
+							<li><a class="dropdown-item"
+								href="/projetoSpringMVC01/tarefas-consulta">Consultar
+									Tarefas</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Relatório de
+							<li><a class="dropdown-item"
+								href="/projetoSpringMVC01/tarefas-relatorio">Relatório de
 									Tarefas</a></li>
 						</ul></li>
 				</ul>
@@ -55,3 +60,5 @@
 </body>
 
 </html>
+
+
