@@ -28,5 +28,12 @@ public class TarefasController {
 		ModelAndView modelAndView = new ModelAndView("tarefas/relatorio");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/tarefas-edicao") // ROTA (URL)
+	public ModelAndView edicao() {
+		// WEB-INF/views/tarefas/relatorio.jsp
+		ModelAndView modelAndView = new ModelAndView("tarefas/edicao");
+		return modelAndView;
+	}
 
 }

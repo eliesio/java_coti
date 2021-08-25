@@ -4,7 +4,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastro</title>
+<title>Edição</title>
 
 <!-- adicionando referencia para as bibliotecas de CSS (folha de estilo) -->
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
@@ -16,7 +16,7 @@
 	<jsp:include page="/WEB-INF/views/components/menu.jsp" />
 
 	<div class="container mt-3">
-		<h5>Cadastrar tarefas</h5>
+		<h5>Atualizar dados da tarefa</h5>
 		<br />
 		
 		<form>
@@ -68,10 +68,10 @@
 				<div class="col-md-6">
 				
 					<!-- BOTÃO PARA ENVIAR OS DADOS DO FORMULARIO PARA O SERVIDOR -->
-					<input type="submit" value="Realizar Cadastro" class="btn btn-success"/>
+					<input type="submit" value="Salvar Alterações" class="btn btn-primary"/>
 					
 					<!-- BOTÃO PARA LIMPAR O FORMULARIO -->
-					<input type="reset" value="Cancelar" class="btn btn-light"/>
+					<a href="/projetoSpringMVC01/tarefas-consulta" class="btn btn-light">Cancelar</a>
 				
 				</div>
 			</div>
