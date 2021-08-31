@@ -2,6 +2,7 @@ package br.com.cotiinformatica.dtos;
 
 public class TarefasCadastroDTO {
 
+	// atributos
 	private String nome;
 	private String data;
 	private String hora;

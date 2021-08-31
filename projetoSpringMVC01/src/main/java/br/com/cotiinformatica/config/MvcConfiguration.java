@@ -12,6 +12,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import br.com.cotiinformatica.interfaces.ITarefaRepository;
+import br.com.cotiinformatica.repositories.TarefaRepository;
+
 @Configuration
 @ComponentScan(basePackages = "br.com.cotiinformatica")
 @EnableWebMvc
@@ -29,17 +32,24 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
-	
+
 	@Bean
 	public DataSource getDataSource() {
-		
+
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		
+
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/bd_projetospringmvc01?useTimezone=true&serverTimezone=UTC&useSSL=false");
+		dataSource.setUrl(
+				"jdbc:mysql://localhost:3306/bd_projetospringmvc01?useTimezone=true&serverTimezone=UTC&useSSL=false");
 		dataSource.setUsername("root");
 		dataSource.setPassword("coti");
-		
+
 		return dataSource;
 	}
+
+	@Bean
+	public ITarefaRepository getITarefaRepository() {
+		return new TarefaRepository(getDataSource());
+	}
+
 }
