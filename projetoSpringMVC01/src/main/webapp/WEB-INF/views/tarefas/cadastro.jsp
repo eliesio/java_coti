@@ -27,6 +27,7 @@ input.error, textarea.error, select.error {
 <body>
 
 	<jsp:include page="/WEB-INF/views/components/menu.jsp" />
+	<jsp:include page="/WEB-INF/views/components/mensagens.jsp"/>
 
 	<div class="container mt-3">
 		<h5>Cadastrar tarefas</h5>
