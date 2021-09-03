@@ -1,10 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+
+<!-- TAGLIB do Spring MVC -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Edi√ß√£o</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>EdiÁ„o</title>
 
 <!-- adicionando referencia para as bibliotecas de CSS (folha de estilo) -->
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
@@ -25,31 +28,39 @@ input.error, textarea.error, select.error {
 <body>
 
 	<jsp:include page="/WEB-INF/views/components/menu.jsp" />
+	<jsp:include page="/WEB-INF/views/components/mensagens.jsp" />
 
 	<div class="container mt-3">
 		<h5>Atualizar dados da tarefa</h5>
 		<br />
 
-		<form id="form-edicao" autocomplete="off">
+		<form id="form-edicao" action="atualizar-tarefa" method="post"
+			autocomplete="off">
+
+			<!-- campo oculto -->
+			<form:input type="hidden" path="tarefas-dto.idTarefa" />
 
 			<!-- LINHA -->
 			<div class="row">
 
 				<!-- COLUNA -->
 				<div class="col-md-6">
-					<label>Nome da tarefa:</label> <input type="text" id="nome"
+					<label>Nome da tarefa:</label>
+					<form:input path="tarefas-dto.nome" type="text" id="nome"
 						name="nome" class="form-control" />
 				</div>
 
 				<!-- COLUNA -->
 				<div class="col-md-3">
-					<label>Data da tarefa:</label> <input type="date" id="data"
+					<label>Data da tarefa:</label>
+					<form:input path="tarefas-dto.data" type="date" id="data"
 						name="data" class="form-control" />
 				</div>
 
 				<!-- COLUNA -->
 				<div class="col-md-3">
-					<label>Hora da tarefa:</label> <input type="time" id="hora"
+					<label>Hora da tarefa:</label>
+					<form:input path="tarefas-dto.hora" type="time" id="hora"
 						name="hora" class="form-control" />
 				</div>
 			</div>
@@ -59,30 +70,30 @@ input.error, textarea.error, select.error {
 
 				<!-- COLUNA -->
 				<div class="col-md-6">
-					<label>Descri√ß√£o da tarefa:</label>
-					<textarea id="descricao" name="descricao" class="form-control"></textarea>
+					<label>DescriÁ„o da tarefa:</label>
+					<form:textarea path="tarefas-dto.descricao" id="descricao"
+						name="descricao" class="form-control"></form:textarea>
 				</div>
 
 				<!-- COLUNA -->
 				<div class="col-md-3">
-					<label>Prioridade da tarefa:</label> <select class="form-select"
+					<label>Prioridade da tarefa:</label>
+					<form:select path="tarefas-dto.prioridade" class="form-select"
 						id="prioridade" name="prioridade">
-						<option value="">Escolha uma op√ß√£o</option>
-						<option value="BAIXA">Prioridade Baixa</option>
-						<option value="MEDIA">Prioridade M√©dia</option>
-						<option value="ALTA">Prioridade Alta</option>
-					</select>
+						<option value="">Escolha uma opÁ„o</option>
+						<form:options items="${prioridades}" />
+					</form:select>
 				</div>
 			</div>
 
 			<div class="row mt-3">
 				<div class="col-md-6">
 
-					<!-- BOT√ÉO PARA ENVIAR OS DADOS DO FORMULARIO PARA O SERVIDOR -->
-					<input type="submit" value="Salvar Altera√ß√µes"
+					<!-- BOT√O PARA ENVIAR OS DADOS DO FORMULARIO PARA O SERVIDOR -->
+					<input type="submit" value="Salvar AlteraÁıes"
 						class="btn btn-primary" />
 
-					<!-- BOT√ÉO PARA LIMPAR O FORMULARIO -->
+					<!-- BOT√O PARA LIMPAR O FORMULARIO -->
 					<a href="/projetoSpringMVC01/tarefas-consulta"
 						class="btn btn-light">Cancelar</a>
 
@@ -102,12 +113,12 @@ input.error, textarea.error, select.error {
 
 	<script>
 		//iniciando o jquery..
-		//quando a p√°gina abrir, fa√ßa..
+		//quando a p·gina abrir, faÁa..
 		$(document).ready(function() { //page_load
 
-			//valida√ß√£o do formul√°rio
+			//validaÁ„o do formul·rio
 			$("#form-edicao").validate({
-				//regras de valida√ß√£o
+				//regras de validaÁ„o
 				rules : {
 					"nome" : {
 						required : true,
@@ -137,6 +148,8 @@ input.error, textarea.error, select.error {
 </body>
 
 </html>
+
+
 
 
 
