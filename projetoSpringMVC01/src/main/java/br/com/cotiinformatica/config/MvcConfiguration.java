@@ -13,7 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.cotiinformatica.interfaces.ITarefaRepository;
+import br.com.cotiinformatica.interfaces.IUsuarioRepository;
 import br.com.cotiinformatica.repositories.TarefaRepository;
+import br.com.cotiinformatica.repositories.UsuarioRepository;
 
 @Configuration
 @ComponentScan(basePackages = "br.com.cotiinformatica")
@@ -33,6 +35,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
+	/*
+	 * Configuração para definir os parametros de acesso ao banco de dados do MYSQL
+	 */
 	@Bean
 	public DataSource getDataSource() {
 
@@ -47,9 +52,22 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		return dataSource;
 	}
 
+	/*
+	 * Configuração para que o Spring possa inicializar de forma automatica as
+	 * interfaces / classes da camada de repositorio (Injeção de dependencia)
+	 */
 	@Bean
 	public ITarefaRepository getITarefaRepository() {
 		return new TarefaRepository(getDataSource());
 	}
 
+	@Bean
+	public IUsuarioRepository getIUsuarioRepository() {
+		return new UsuarioRepository(getDataSource());
+	}
 }
+
+
+
+
+
