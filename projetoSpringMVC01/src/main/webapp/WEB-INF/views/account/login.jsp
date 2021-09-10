@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,15 +36,17 @@
 						<hr />
 					</div>
 					
-					<form id="form-login" method="post" autocomplete="off">
+					<jsp:include page="/WEB-INF/views/components/mensagens.jsp"/>
+					
+					<form id="form-login" action="autenticar-usuario" method="post" autocomplete="off">
 					
 						<label>Email de acesso:</label>
-						<input type="text" id="email" name="email" 
+						<form:input path="login-dto.email" type="text" id="email" name="email" 
 							   class="form-control" placeholder="Digite aqui"/>
 						<br/>
 						
 						<label>Senha de acesso:</label>
-						<input type="password" id="senha" name="senha" 
+						<form:input path="login-dto.senha" type="password" id="senha" name="senha" 
 							   class="form-control" placeholder="Digite aqui"/>
 						<div class="text-end">
 							<a href="/projetoSpringMVC01/password-recover">Esqueci minha senha?</a>
@@ -101,6 +106,8 @@
 
 </body>
 </html>
+
+
 
 
 

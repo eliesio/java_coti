@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,26 +33,29 @@
 						<hr />
 					</div>
 					
-					<form id="form-register" method="post" autocomplete="off">
+					<jsp:include page="/WEB-INF/views/components/mensagens.jsp"/>
+					
+					<form id="form-register" action="cadastrar-usuario" method="post" autocomplete="off">
 					
 						<label>Nome do Usuário:</label>
-						<input type="text" id="nome" name="nome" 
+						<form:input path="register-dto.nome" type="text" id="nome" name="nome" 
 							   class="form-control" placeholder="Digite aqui"/>
 						<br/>
 					
 						<label>Email:</label>
-						<input type="text" id="email" name="email" 
+						<form:input path="register-dto.email" type="text" id="email" name="email" 
 							   class="form-control" placeholder="Digite aqui"/>
 						<br/>
 						
 						<label>Senha:</label>
-						<input type="password" id="senha" name="senha" 
+						<form:input path="register-dto.senha" type="password" id="senha" name="senha" 
 							   class="form-control" placeholder="Digite aqui"/>
 						<br/>
 						
 						<label>Confirme sua senha:</label>
-						<input type="password" id="senhaConfirmacao" name="senhaConfirmacao" 
-							   class="form-control" placeholder="Digite aqui"/>
+						<form:input path="register-dto.senhaConfirmacao" type="password" 
+								id="senhaConfirmacao" name="senhaConfirmacao" 
+							   	class="form-control" placeholder="Digite aqui"/>
 						<br/>
 						
 						<div class="d-grid">

@@ -13,13 +13,13 @@
 
 <body>
 
-	<jsp:include page="/WEB-INF/views/components/menu.jsp"></jsp:include>
+
+	<jsp:include page="/WEB-INF/views/components/menu.jsp" />
+	<jsp:include page="/WEB-INF/views/components/mensagens.jsp" />
 
 	<div class="container mt-3">
-
 		<h5>Seja bem vindo ao projeto</h5>
 		Sistema desenvolvido em Spring MVC com MySQL e JDBC Template
-
 	</div>
 
 	<!-- adicionando referencia para as bibliotecas de JS (javascript) -->
@@ -29,5 +29,7 @@
 </body>
 
 </html>
+
+
 
 
