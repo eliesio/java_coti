@@ -1,5 +1,7 @@
 package br.com.cotiinformatica.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +31,7 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "autenticar-usuario", method = RequestMethod.POST)
-	public ModelAndView autenticarUsuario(AccountLoginDTO dto) {
+	public ModelAndView autenticarUsuario(AccountLoginDTO dto, HttpServletRequest request) {
 
 		ModelAndView modelAndView = new ModelAndView("account/login");
 
@@ -41,8 +43,9 @@ public class AccountController {
 			// verificar se o usuario foi encontrado..
 			if (usuario != null) {
 
-				modelAndView.addObject("mensagem_sucesso", "Autenticação realizada com sucesso");
-				modelAndView.setViewName("home"); // redirecionar
+				// gravar os dados do usuario em uma sessão..
+				request.getSession().setAttribute("user_auth", usuario);
+				modelAndView.setViewName("redirect:/home"); // redirecionar
 			} else {
 				modelAndView.addObject("mensagem_erro", "Acesso Negado. Usuário inválido.");
 			}
@@ -102,10 +105,21 @@ public class AccountController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/password-recover") // cadastro de usuário
+	@RequestMapping("/password-recover") // recuperar a senha do usuario
 	public ModelAndView passwordrecover() {
 		// WEB-INF/views/account/passwordrecover.jsp
 		ModelAndView modelAndView = new ModelAndView("account/passwordrecover");
+		return modelAndView;
+	}
+
+	@RequestMapping("/logout")
+	public ModelAndView logout(HttpServletRequest request) {
+
+		// apagar os dados gravados em sessão
+		request.getSession().removeAttribute("user_auth");
+
+		// redirecionar de volta para a página de login (página inicial)
+		ModelAndView modelAndView = new ModelAndView("redirect:/");
 		return modelAndView;
 	}
 
