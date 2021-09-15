@@ -102,7 +102,7 @@ public class TarefaRepository implements ITarefaRepository {
 
 		String query = "select * from tarefa where data between ? and ? order by data desc";
 
-		Object[] params = { dataMin, dataMax };
+		Object[] params = { DateHelper.toString(dataMin), DateHelper.toString(dataMax) };
 
 		List<Tarefa> lista = jdbcTemplate.query(query, params, new RowMapper<Tarefa>() {
 

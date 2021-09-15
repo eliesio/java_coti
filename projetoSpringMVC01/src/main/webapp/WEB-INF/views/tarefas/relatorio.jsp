@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <html>
 
 <head>
@@ -30,17 +32,20 @@ input.error, textarea.error, select.error {
 		<h5>Relatório de tarefas</h5>
 		<br />
 
-		<form id="form-relatorio" autocomplete="off">
+		<form id="form-relatorio" action="gerar-relatorio" method="post"
+			autocomplete="off">
 
 			<div class="row">
 
 				<div class="col-md-3">
-					<label>Data de início:</label> <input type="date" id="dataMin"
+					<label>Data de início:</label>
+					<form:input path="relatorio-dto.dataMin" type="date" id="dataMin"
 						name="dataMin" class="form-control" />
 				</div>
 
 				<div class="col-md-3">
-					<label>Data de término:</label> <input type="date" id="dataMax"
+					<label>Data de término:</label>
+					<form:input path="relatorio-dto.dataMax" type="date" id="dataMax"
 						name="dataMax" class="form-control" />
 				</div>
 
@@ -87,3 +92,7 @@ input.error, textarea.error, select.error {
 </body>
 
 </html>
+
+
+
+
