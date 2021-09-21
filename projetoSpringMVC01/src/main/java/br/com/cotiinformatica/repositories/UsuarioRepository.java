@@ -82,7 +82,7 @@ public class UsuarioRepository implements IUsuarioRepository {
 			}
 		});
 
-		if (!lista.isEmpty()) // se a lista n√£o est√° vazia
+		if (!lista.isEmpty()) // se a lista n„o est· vazia
 			return lista.get(0); // retorne o primeiro elemento da lista
 
 		return null;
@@ -103,7 +103,7 @@ public class UsuarioRepository implements IUsuarioRepository {
 			}
 		});
 
-		if (!lista.isEmpty()) // se a lista n√£o est√° vazia
+		if (!lista.isEmpty()) // se a lista n„o est· vazia
 			return lista.get(0); // retorne o primeiro elemento da lista
 
 		return null;
@@ -124,14 +124,14 @@ public class UsuarioRepository implements IUsuarioRepository {
 			}
 		});
 
-		if (!lista.isEmpty()) // se a lista n√£o est√° vazia
+		if (!lista.isEmpty()) // se a lista n„o est· vazia
 			return lista.get(0); // retorne o primeiro elemento da lista
 
 		return null;
 
 	}
 
-	// m√©todo somente para ler os dados da tarefa na consulta do banco de dados
+	// mÈtodo somente para ler os dados da tarefa na consulta do banco de dados
 	private Usuario getUsuario(ResultSet rs) throws SQLException {
 
 		Usuario usuario = new Usuario();
@@ -145,8 +145,3 @@ public class UsuarioRepository implements IUsuarioRepository {
 	}
 
 }
-
-
-
-
-

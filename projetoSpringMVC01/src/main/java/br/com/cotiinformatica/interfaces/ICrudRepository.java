@@ -16,6 +16,6 @@ public interface ICrudRepository<T, ID> {
 	void delete(T obj) throws Exception;
 
 	List<T> getAll() throws Exception;
-
+	
 	T getById(ID id) throws Exception;
 }

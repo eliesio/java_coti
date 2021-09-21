@@ -1,11 +1,14 @@
 package br.com.cotiinformatica.entities;
 
+import java.util.List;
+
 public class Usuario {
 
 	private Integer idUsuario;
 	private String nome;
 	private String email;
 	private String senha;
+	private List<Tarefa> tarefas;
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -49,6 +52,14 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public List<Tarefa> getTarefas() {
+		return tarefas;
+	}
+
+	public void setTarefas(List<Tarefa> tarefas) {
+		this.tarefas = tarefas;
 	}
 
 	@Override

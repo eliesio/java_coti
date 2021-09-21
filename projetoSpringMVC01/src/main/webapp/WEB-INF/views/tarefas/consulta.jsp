@@ -26,8 +26,7 @@
 		<h5>Consultar tarefas</h5>
 		<br />
 
-		<table id="consulta-tarefas"
-			class="table table-hover table-striped table-sm">
+		<table id="consulta-tarefas" class="table table-hover table-striped table-sm">
 			<thead>
 				<tr>
 					<th>Nome da tarefa</th>
@@ -53,12 +52,19 @@
 							</c:if> <c:if test="${item.prioridade == 'BAIXA'}">
 								<span class="badge bg-success">BAIXA</span>
 							</c:if></td>
-						<td><a
-							href="/projetoSpringMVC01/tarefas-edicao?id=${item.idTarefa}"
-							class="btn btn-primary btn-sm"> Editar </a> <a
-							href="/projetoSpringMVC01/tarefas-exclusao?id=${item.idTarefa}"
+						<td>
+						<a href="/projetoSpringMVC01/tarefas-edicao?id=${item.idTarefa}"
+							class="btn btn-primary btn-sm">
+							Editar
+						</a> 
+						
+						<a href="/projetoSpringMVC01/tarefas-exclusao?id=${item.idTarefa}"
 							onclick="return confirm('Deseja realmente excluir a tarefa ${item.nome}?');"
-							class="btn btn-danger btn-sm"> Excluir </a></td>
+							class="btn btn-danger btn-sm">
+							Excluir
+						</a>
+						
+						</td>
 					</tr>
 				</c:forEach>
 
@@ -71,8 +77,8 @@
 		</table>
 
 	</div>
-	<br />
-	<br />
+	<br/>
+	<br/>
 
 	<!-- adicionando referencia para as bibliotecas de JS (javascript) -->
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -80,21 +86,15 @@
 	<script src="resources/js/jquery.dataTables.min.js"></script>
 
 	<script>
-		$(document)
-				.ready(
-						function() {
-							$('#consulta-tarefas')
-									.DataTable(
-											{
-												language : {
-													url : '//cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json'
-												}
-											});
-						});
+		$(document).ready(function() {
+			$('#consulta-tarefas').DataTable({
+		        language: {
+		            url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json'
+		        }
+		    });
+		});
 	</script>
 
 </body>
 
 </html>
-
-

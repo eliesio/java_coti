@@ -1,9 +1,8 @@
 package br.com.cotiinformatica.dtos;
 
-public class AccountLoginDTO {
+public class AccountPasswordRecoverDTO {
 
 	private String email;
-	private String senha;
 
 	public String getEmail() {
 		return email;
@@ -11,14 +10,6 @@ public class AccountLoginDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 }

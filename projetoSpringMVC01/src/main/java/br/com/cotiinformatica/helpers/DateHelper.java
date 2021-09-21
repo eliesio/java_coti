@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 
 public class DateHelper {
 
-	// mÃ©todo para receber uma string no formato yyyy-MM-dd
+	// método para receber uma string no formato yyyy-MM-dd
 	// e converte-la para o tipo java.util.Date
 	public static Date toDate(String data) {
 
@@ -19,11 +19,19 @@ public class DateHelper {
 		return calendar.getTime();
 	}
 
-	// mÃ©todo para receber uma data do java (java.util.Date)
-	// e retorna-la como string no padrÃ£o yyyy-MM-dd
+	// método para receber uma data do java (java.util.Date)
+	// e retorna-la como string no padrão yyyy-MM-dd
 	public static String toString(Date data) {
 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		return simpleDateFormat.format(data);
+	}
+
+	// método para receber uma data do java (java.util.Date)
+	// e retorna-la como string no padrão yyyy-MM-dd
+	public static String toStringPtBr(Date data) {
+
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E dd/MM/yyyy");
 		return simpleDateFormat.format(data);
 	}
 }

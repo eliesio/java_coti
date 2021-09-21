@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <html>
 
@@ -13,13 +13,8 @@
 
 <!-- Folha de estilos CSS -->
 <style>
-label.error {
-	color: #d9534f;
-}
-
-input.error, textarea.error, select.error {
-	border: 1px solid #d9534f;
-}
+	label.error { color: #d9534f; }
+	input.error, textarea.error, select.error { border: 1px solid #d9534f; }
 </style>
 
 </head>
@@ -31,33 +26,29 @@ input.error, textarea.error, select.error {
 	<div class="container mt-3">
 		<h5>Relatório de tarefas</h5>
 		<br />
-
-		<form id="form-relatorio" action="gerar-relatorio" method="post"
-			autocomplete="off">
-
+		
+		<form id="form-relatorio" action="gerar-relatorio" method="post" autocomplete="off">
+		
 			<div class="row">
-
+			
 				<div class="col-md-3">
 					<label>Data de início:</label>
-					<form:input path="relatorio-dto.dataMin" type="date" id="dataMin"
-						name="dataMin" class="form-control" />
+					<form:input path="relatorio-dto.dataMin" type="date" id="dataMin" name="dataMin" class="form-control"/>
 				</div>
-
+				
 				<div class="col-md-3">
 					<label>Data de término:</label>
-					<form:input path="relatorio-dto.dataMax" type="date" id="dataMax"
-						name="dataMax" class="form-control" />
+					<form:input path="relatorio-dto.dataMax" type="date" id="dataMax" name="dataMax" class="form-control"/>
 				</div>
-
+			
 			</div>
-
+			
 			<div class="row mt-3">
 				<div class="col-md-12">
-					<input type="submit" value="Gerar Relatório"
-						class="btn btn-success" />
+					<input type="submit" value="Gerar Relatório" class="btn btn-success"/>
 				</div>
 			</div>
-
+		
 		</form>
 
 	</div>
@@ -67,32 +58,28 @@ input.error, textarea.error, select.error {
 	<script src="resources/js/jquery-3.6.0.min.js"></script>
 	<script src="resources/js/jquery.validate.min.js"></script>
 	<script src="resources/js/messages_pt_BR.min.js"></script>
-
+	
 	<script>
+	
 		//iniciando o jquery..
 		//quando a página abrir, faça..
-		$(document).ready(function() { //page_load
+		$(document).ready(function(){ //page_load
 
 			//validação do formulário
-			$("#form-relatorio").validate({
-				//regras de validação
-				rules : {
-					"dataMin" : {
-						required : true
-					},
-					"dataMax" : {
-						required : true
+			$("#form-relatorio").validate(
+				{
+					//regras de validação
+					rules : {
+						"dataMin" : { required : true },
+						"dataMax" : { required : true }
 					}
-				}
-			});
-
+				}			
+			);
+			
 		});
-	</script>
+	
+	</script>	
 
 </body>
 
 </html>
-
-
-
-

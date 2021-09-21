@@ -66,7 +66,7 @@
 					<label>Prioridade da tarefa:</label>
 					<form:select path="tarefas-dto.prioridade" id="prioridade" name="prioridade" class="form-select">
 						<option value="">Escolha uma opção</option>
-						<form:options items="${prioridades}" />
+						<form:options items="${prioridades}"/>
 					</form:select>
 				</div>
 			</div>
@@ -120,5 +120,3 @@
 </body>
 
 </html>
-
-

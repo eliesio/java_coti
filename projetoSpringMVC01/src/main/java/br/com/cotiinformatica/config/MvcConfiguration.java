@@ -36,7 +36,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	/*
-	 * ConfiguraÃ§Ã£o para definir os parametros de acesso ao banco de dados do MYSQL
+	 * Configuração para definir os parametros de acesso ao banco de dados do MYSQL
 	 */
 	@Bean
 	public DataSource getDataSource() {
@@ -53,8 +53,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	/*
-	 * ConfiguraÃ§Ã£o para que o Spring possa inicializar de forma automatica as
-	 * interfaces / classes da camada de repositorio (InjeÃ§Ã£o de dependencia)
+	 * Configuração para que o Spring possa inicializar de forma automatica as
+	 * interfaces / classes da camada de repositorio (Injeção de dependencia)
 	 */
 	@Bean
 	public ITarefaRepository getITarefaRepository() {
@@ -66,8 +66,3 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		return new UsuarioRepository(getDataSource());
 	}
 }
-
-
-
-
-

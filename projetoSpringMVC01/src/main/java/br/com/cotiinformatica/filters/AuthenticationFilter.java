@@ -26,33 +26,35 @@ public class AuthenticationFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
-		// tratamento para atualizar estes objetos request e response para
-		// os tipos: HttpServletRequest e HttpServletResponse
+		//tratamento para atualizar estes objetos request e response para
+		//os tipos: HttpServletRequest e HttpServletResponse
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-
-		// definir quais s√£o as URLs permitidas no sistema
-		// n√£o precisam que o usuario esteja autenticado..
+		
+		//definir quais s„o as URLs permitidas no sistema
+		//n„o precisam que o usuario esteja autenticado..
 		List<String> urlsPermitidas = new ArrayList<String>();
-
+		
 		urlsPermitidas.add("/");
 		urlsPermitidas.add("/login");
 		urlsPermitidas.add("/register");
 		urlsPermitidas.add("/autenticar-usuario");
 		urlsPermitidas.add("/cadastrar-usuario");
 		urlsPermitidas.add("/password-recover");
-
-		// verificando se a requisi√ß√£o que o FILTER esta interceptando
-		// n√£o √© de nenhuma das URLs contidas na lista
-		if (!urlsPermitidas.contains(req.getServletPath())) {
-
-			// verificar se o usuario n√£o esta autenticado em sess√£o (user_auth)
-			if (req.getSession().getAttribute("user_auth") == null) {
-				// redirecionar para a p√°gina inicial do projeto
+		urlsPermitidas.add("/recuperar-senha");
+		
+		//verificando se a requisiÁ„o que o FILTER esta interceptando
+		//n„o È de nenhuma das URLs contidas na lista
+		if(!urlsPermitidas.contains(req.getServletPath())) {
+			
+			//verificar se o usuario n„o esta autenticado em sess„o (user_auth)
+			if(req.getSession().getAttribute("user_auth") == null) {
+				//redirecionar para a p·gina inicial do projeto
 				resp.sendRedirect("/projetoSpringMVC01/");
 			}
 		}
-
+		
+		
 		chain.doFilter(request, response);
 	}
 

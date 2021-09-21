@@ -12,6 +12,7 @@ public class Tarefa {
 	private String hora;
 	private String descricao;
 	private PrioridadeTarefa prioridade;
+	private Usuario usuario; // Associação (TER-1)
 
 	public Tarefa() {
 		// TODO Auto-generated constructor stub
@@ -76,10 +77,17 @@ public class Tarefa {
 		this.prioridade = prioridade;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
 		return "Tarefa [idTarefa=" + idTarefa + ", nome=" + nome + ", data=" + data + ", hora=" + hora + ", descricao="
 				+ descricao + ", prioridade=" + prioridade + "]";
 	}
-
 }

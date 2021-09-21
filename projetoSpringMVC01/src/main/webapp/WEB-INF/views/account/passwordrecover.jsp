@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +33,12 @@
 						<hr />
 					</div>
 					
-					<form id="form-passwordrecover" method="post" autocomplete="off">
+					<jsp:include page="/WEB-INF/views/components/mensagens.jsp"/>
+					
+					<form id="form-passwordrecover" action="recuperar-senha" method="post" autocomplete="off">
 					
 						<label>Informe seu email de acesso:</label>
-						<input type="text" id="email" name="email" 
+						<form:input path="passwordrecover-dto.email" type="text" id="email" name="email" 
 							   class="form-control" placeholder="Digite aqui"/>
 						<br/>
 						
@@ -89,7 +94,3 @@
 
 </body>
 </html>
-
-
-
-

@@ -40,8 +40,3 @@ public class AccountRegisterDTO {
 	}
 
 }
-
-
-
-
-
