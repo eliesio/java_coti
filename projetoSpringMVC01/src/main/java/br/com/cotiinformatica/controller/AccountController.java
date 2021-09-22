@@ -20,7 +20,7 @@ import br.com.cotiinformatica.mail.EmailService;
 @Controller
 public class AccountController {
 
-	@Autowired // injeção de dependência (inicialização)
+	@Autowired // injeï¿½ï¿½o de dependï¿½ncia (inicializaï¿½ï¿½o)
 	private IUsuarioRepository usuarioRepository;
 
 	@RequestMapping("/") // raiz do projeto
@@ -28,7 +28,7 @@ public class AccountController {
 		// WEB-INF/views/account/login.jsp
 		ModelAndView modelAndView = new ModelAndView("account/login");
 
-		// enviando para a página uma instancia do DTO
+		// enviando para a pï¿½gina uma instancia do DTO
 		modelAndView.addObject("login-dto", new AccountLoginDTO());
 
 		return modelAndView;
@@ -47,31 +47,31 @@ public class AccountController {
 			//verificar se o usuario foi encontrado..
 			if(usuario != null) {
 				
-				//gravar os dados do usuario em uma sessão..
+				//gravar os dados do usuario em uma sessï¿½o..
 				request.getSession().setAttribute("user_auth", usuario);
 				modelAndView.setViewName("redirect:/home"); //redirecionar
 			}
 			else {
-				modelAndView.addObject("mensagem_erro", "Acesso Negado. Usuário inválido.");
+				modelAndView.addObject("mensagem_erro", "Acesso Negado. Usuï¿½rio invï¿½lido.");
 			}
 		}
 		catch(Exception e) {
 			modelAndView.addObject("mensagem_erro", e.getMessage());
 		}
 
-		// enviando para a página uma instancia do DTO
+		// enviando para a pï¿½gina uma instancia do DTO
 		modelAndView.addObject("login-dto", new AccountLoginDTO());
 
 		return modelAndView;
 		
 	}
 
-	@RequestMapping("/register") // cadastro de usuário
+	@RequestMapping("/register") // cadastro de usuï¿½rio
 	public ModelAndView register() {
 		// WEB-INF/views/account/register.jsp
 		ModelAndView modelAndView = new ModelAndView("account/register");
 
-		// enviando para a página uma instancia do DTO
+		// enviando para a pï¿½gina uma instancia do DTO
 		modelAndView.addObject("register-dto", new AccountRegisterDTO());
 
 		return modelAndView;
@@ -87,7 +87,7 @@ public class AccountController {
 			// verificando se ja existe no banco um usuario cadastrado com o email
 			if (usuarioRepository.getByEmail(dto.getEmail()) != null) {
 				modelAndView.addObject("mensagem_erro",
-						"O email " + dto.getEmail() + " informado já encontra-se cadastrado, tente outro.");
+						"O email " + dto.getEmail() + " informado jï¿½ encontra-se cadastrado, tente outro.");
 			} else {
 
 				Usuario usuario = new Usuario();
@@ -98,14 +98,14 @@ public class AccountController {
 
 				usuarioRepository.create(usuario); // gravando no banco!
 
-				modelAndView.addObject("mensagem_sucesso", "Parabéns, sua conta de usuario foi criada com sucesso.");
+				modelAndView.addObject("mensagem_sucesso", "Parabï¿½ns, sua conta de usuario foi criada com sucesso.");
 				dto = new AccountRegisterDTO();
 			}
 		} catch (Exception e) {
 			modelAndView.addObject("mensagem_erro", e.getMessage());
 		}
 
-		// enviando para a página uma instancia do DTO
+		// enviando para a pï¿½gina uma instancia do DTO
 		modelAndView.addObject("register-dto", dto);
 
 		return modelAndView;
@@ -131,19 +131,19 @@ public class AccountController {
 			//buscar o usuario no banco de dados atraves do email..
 			Usuario usuario = usuarioRepository.getByEmail(dto.getEmail());
 			
-			if(usuario == null) //se o usuario não foi encontrado
-				throw new Exception("O email informado '"+ dto.getEmail() +"' não foi encontrado. Tente novamente.");
+			if(usuario == null) //se o usuario nï¿½o foi encontrado
+				throw new Exception("O email informado '"+ dto.getEmail() +"' nï¿½o foi encontrado. Tente novamente.");
 			
 			//gerar uma nova senha para o usuario
 			usuario.setSenha(String.valueOf(new Random().nextInt(999999999)));
 			usuarioRepository.update(usuario);
 			
 			//enviando um email para o usuario com a nova senha
-			EmailService.enviarMensagem(usuario.getEmail(), "Nova senha gerada com sucesso - COTI Informática", 
-					"Olá, " + usuario.getNome() +
+			EmailService.enviarMensagem(usuario.getEmail(), "Nova senha gerada com sucesso - COTI Informï¿½tica", 
+					"OlÃ¡, " + usuario.getNome() +
 					"\n\nSua nova senha foi gerada com sucesso: " + usuario.getSenha() +
 					"\nUtilize esta senha para acessar o sistema" + 
-					"\n\nAtt\nEquipe COTI Informática.");
+					"\n\nAtt\nEquipe COTI InformÃ¡tica.");
 			
 			modelAndView.addObject("mensagem_sucesso", "Nova senha gerada com sucesso. Acesse sua conta de email.");
 		}
@@ -158,10 +158,10 @@ public class AccountController {
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpServletRequest request) {
 		
-		//apagar os dados gravados em sessão
+		//apagar os dados gravados em sessï¿½o
 		request.getSession().removeAttribute("user_auth");
 		
-		//redirecionar de volta para a página de login (página inicial)
+		//redirecionar de volta para a pï¿½gina de login (pï¿½gina inicial)
 		ModelAndView modelAndView = new ModelAndView("redirect:/");
 		return modelAndView;
 	}
